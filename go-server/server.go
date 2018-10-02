@@ -59,7 +59,7 @@ func main() {
 func SendMessageToLogstash(w http.ResponseWriter, r *http.Request) {
     url := fmt.Sprintf("http://%s:8888", *logstashHost)
 
-    var jsonStr = []byte(`{"title":"Buy cheese and bread for breakfast."}`)
+    jsonStr, _ := ioutil.ReadAll(r.Body);
     req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonStr))
     req.Header.Set("X-Custom-Header", "myvalue")
     req.Header.Set("Content-Type", "application/json")
