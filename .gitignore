@@ -69,3 +69,4 @@ fabric.properties
 .idea/httpRequests
 
 /file-output/tdd.txt
+.DS_Store
