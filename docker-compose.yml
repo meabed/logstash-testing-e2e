@@ -1,0 +1,24 @@
+---
+version: '3.6'
+services:
+  logstash_tdd:
+    image: docker.elastic.co/logstash/logstash:${TAG:-6.4.1}
+    container_name: logstash_tdd
+    volumes:
+      - ./files/:/files
+      - ./files/logstash.yml:/usr/share/logstash/config/logstash.yml
+      - ./files/configuration:/var/logstash/configuration
+      - ./file-output:/var/logstash-file-output
+      - ./go-server:/go-server
+    ports:
+      - 8888:8888
+      - 9001:9001
+    command:
+      - sh
+      - -c
+      - /files/entrypoint.sh
+#    healthcheck:
+#      test: bin/logstash -t
+#      interval: 60s
+#      timeout: 50s
+#      retries: 5
