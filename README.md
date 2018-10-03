@@ -31,6 +31,8 @@ $ docker-machine ip default # 192.168.64.6:9001
 - and more...
 
 ## TODO LIST
+- [ ] Screenshots
+- [ ] Video Tutorial
 - [ ] Examples " Mongo / Redis / Nginx / Apache / Log4j / JSON / Multiline / etc... "
 - [ ] UI Enhancements
 - [ ] UI Start / Stop / Reload logstash 
