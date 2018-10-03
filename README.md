@@ -3,7 +3,7 @@
 
 [![GitHub](https://img.shields.io/github/license/meabed/logstash-testing-e2e.svg?style=flat-square)](LICENSE.md)
 [![Twitter URL](https://img.shields.io/twitter/url/meabed/logstash-testing-e2e.svg?style=flat-square)](https://twitter.com/share?url=https://meabed.com/blog/mastering-logstash-with-e2e-testing&text=Mastering%20Logstash%20with%20e2e%20testing%20@elastic%20@logstash)
-[![Twitter URL](https://img.shields.io/badge/blog-post-green.svg?style=flat-square)](https://meabed.com/blog/mastering-logstash-with-e2e-testing)
+[![Blog URL](https://img.shields.io/badge/blog-post-green.svg?style=flat-square)](https://meabed.com/blog/mastering-logstash-with-e2e-testing)
 
 #### Why UI?
 Testing Logstash real configuration input, output, codecs and filters is a extremely tedious process results in logstash configurations that are not tested properly and it break very often.
