@@ -1,4 +1,4 @@
-var app = angular.module('logstash_tdd', ['ngStorage', 'hljs']);
+var app = angular.module('logstash_e2e', ['ngStorage', 'hljs']);
 
 app.factory('socket', function ($rootScope) {
   var socket = io.connect();
@@ -47,6 +47,7 @@ app.config(function (hljsServiceProvider) {
 app.controller('mainlCtrl', function ($scope, $http, $timeout, $location, $window, socket, $localStorage, $sessionStorage) {
 
   $scope.logExamples = $window.logExamples;
+  $scope.logFilters = [];
   $scope.showUseful = 0;
   $scope.currentTab = 1;
 

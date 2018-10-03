@@ -2,11 +2,11 @@
 
 http.host: 0.0.0.0
 
-pipeline.id: logstash_tdd
+pipeline.id: logstash_e2e
 pipeline.batch.size: 1
 pipeline.batch.delay: 30
 
-node.name: "logstash_tdd"
+node.name: "logstash_e2e"
 
 path.config: /var/logstash/configuration/*.conf
 
