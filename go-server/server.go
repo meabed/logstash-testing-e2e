@@ -61,6 +61,7 @@ func SendMessageToLogstash(w http.ResponseWriter, r *http.Request) {
 
     jsonStr, _ := ioutil.ReadAll(r.Body);
     req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonStr))
+    // todo simulate if json or different codecs like filebeat / gelf / etc...
     //req.Header.Set("Content-Type", "application/json")
 
     client := &http.Client{}
