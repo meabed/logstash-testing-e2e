@@ -11,46 +11,34 @@ Testing Logstash real configuration input, output, codecs and filters is a extre
 
 ```bash
 # Clone the github repo  
-$ docker pull meio/go-swap-server:latest
+$ git clone --depth 1  --branch master https://github.com/meabed/logstash-testing-e2e.git
+
 # run docker-compose
 $ docker-compose up
+
 # Wait fot logstash to start
-# Open your web page "localhost" or docker-machine IP 
+# Open your web page localhost:9001
+
+# if you are using mac you open the docker machine ip 
+$ docker-machine ip default # 192.168.64.6:9001
 ```
 
 
 ## Features
-- Convert with Single exchange source `/GET` 
-- Convert with Multi exchange sources with fallback mechanism `/POST`
-    - Google
-    - Yahoo
-    - CurrencyLayer
-    - Fixer.io
-    - themoneyconverter.com
-    - openexchangerates.org
-    - 1forge.com
-- Rate Caching - `120s Default` 
-    - Memory - `Default`
-    - Redis
-- Rate decimal points rounding `4 Default`
-- Swagger UI
-- Clear API Request and Response
-- Docker image, Binary release and Heroku Demo
-- Clear documentation and 90%+ code coverage
-- Unit tested on live and mock data
-
+- Online UI For e2e logstash testing
+- Realtime Logstash parsing of logs
+- Examples of logs of different services
+- and more...
 
 ## TODO LIST
-- [ ] error structure for empty json or regex not matched
-- [ ] convert panic to api json error
-- [ ] increase tests
-- [ ] verbose logging
-- [ ] godoc 
-- [ ] static bundle public folder `./cmd/server/public`
-- [ ] v 1.0.0 release ( docker / binary github / homebrew mac )
-- [ ] support historical rates if possible
-- [ ] benchmark & performance optimization ` memory leak`
-- [ ] contributors list 
+- [ ] Examples " Mongo / Redis / Nginx / Apache / Log4j / JSON / Multiline / etc... "
+- [ ] UI Enhancements
+- [ ] UI Start / Stop / Reload logstash 
+- [ ] UI Logstash error viewer from log path 
+- [ ] More documentation about using logstash
+- [ ] Deploy on public test server
+- [ ] Online editing of logstash configurations
+- [ ] Contributors list 
 
 ## Contributing
 
