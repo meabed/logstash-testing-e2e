@@ -4,7 +4,7 @@ MY_DIR="$(dirname "$0")"
 OUT_PATH="${MY_DIR}"
 IN="${MY_DIR}/server.go"
 
-for GOOS in darwin linux; do
+for GOOS in linux; do
   for GOARCH in amd64; do
     echo "Building ${GOOS}-${GOARCH}"
     S="${OUT_PATH}/server-${GOOS}-${GOARCH}"
