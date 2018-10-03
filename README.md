@@ -4,7 +4,19 @@
 #### Why UI?
 Testing Logstash real configuration input, output, codecs and filters is a extremely tedious process results in logstash configurations that are not tested properly and it break very often.
  
+#### Design
+Logstash architecture
+<a href="#" target="_blank">
+    <img src="https://image.ibb.co/f7DyMz/Screen_Shot_2018_10_03_at_4_10_27_PM.png" alt="Logstash_Testing" border="0">
+</a>
 
+Testing architecture
+<a href="#" target="_blank">
+    <img src="https://image.ibb.co/nPs3oe/Screen_Shot_2018_10_03_at_4_09_07_PM.png" alt="Logstash_Testing" border="0">
+</a>
+
+
+### Getting started
 ```bash
 # Clone the github repo  
 $ git clone --depth 1  --branch master https://github.com/meabed/logstash-testing-e2e.git
@@ -20,13 +32,13 @@ $ docker-machine ip default # 192.168.64.6:9001
 ```
 
 ### Screens
-<a href="https://github.com/meabed/logstash-testing-e2e" target="_blank">
+<a href="#" target="_blank">
     <img src="https://image.ibb.co/k3bt4K/output_rz6_Ml_U.gif" alt="Logstash_Testing" border="0">
 </a>
 
 #### Docker-compose
  
-<a href="https://github.com/meabed/logstash-testing-e2e" target="_blank">
+<a href="#" target="_blank">
     <img src="https://preview.ibb.co/cqsSWz/Screen_Shot_2018_10_03_at_3_14_06_PM.png" alt="Logstash_Testing" border="0">
 </a>
 
