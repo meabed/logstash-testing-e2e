@@ -1,4 +1,4 @@
-body {
+html, body, table {
     font-size: 14px;
 }
 
@@ -45,4 +45,9 @@ pre {
 
 .card-body {
     padding: 0.75rem;
+}
+
+.footer i.fa {
+    color: #77797a;
+    font-size: 25px;
 }

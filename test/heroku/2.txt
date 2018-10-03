@@ -1,1 +1,0 @@
-2018-10-01T11:02:39.859412+00:00 heroku[router]: at=info method=GET path= "/convert?from= EUR&to= GBP&amount= 100&exchanger=google" host=go-swap-server.herokuapp.com request_id=ca7984ab-985f-4093-9e77-26cfefdf9c61 fwd="63.143.42.249" dyno=web.1 connect=0ms service=582ms status=200 bytes=358 protocol=https

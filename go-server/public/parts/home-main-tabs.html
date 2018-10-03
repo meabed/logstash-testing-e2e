@@ -1,0 +1,36 @@
+<div class="container no-gutters">
+    <div class="card bg-lightx">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" ng-class="currentTab==1 ?'active':''" ng-click="currentTab=1" href="#">Send MSG</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" ng-class="currentTab==2 ?'active':''" ng-click="currentTab=2" href="#">
+                    History ({{ storage.messageHistory.length }})
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" ng-class="currentTab==3 ?'active':''" ng-click="currentTab=3" href="#">Examples</a>
+            </li>
+        </ul>
+        <div class="card-body">
+            <div ng-show="currentTab == 1" class="purple-border">
+                <textarea ng-model="this.logstashMessage" class="form-control" id="msg_id" rows="5" placeholder="Logstash Test Message"></textarea>
+                <br>
+                <button ng-click="sendToLogstash(this.logstashMessage)" class="btn btn-outline-primary btn-sm">SEND TO LOGSTASH</button>
+            </div>
+            <div ng-if="currentTab == 2" class="bg-lightx d-block">
+                <div ng-if="storage.messageHistory.length > 0" class="float-right">
+                    <a href="#" ng-click="clearMessagesHistory()" class="btn btn-outline-primary btn-sm">Clear</a>
+                </div>
+                <table class="table table-striped table-sm">
+                    <tr class="d-flex" ng-repeat="(key, msgHistory) in storage.messageHistory | orderBy:'-inc' track by $index">
+                        <td class="col-2">{{ msgHistory.date | dateUI }} </td>
+                        <td class="col-10">{{ msgHistory.msg }} </td>
+                    </tr>
+                </table>
+            </div>
+            <ng-include src="'parts/examples.html'"></ng-include>
+        </div>
+    </div>
+</div>

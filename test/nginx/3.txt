@@ -1,1 +1,0 @@
-2012/06/25 22:53:13 [error] 68579#0: *1 open() "./html/favicon.ico" failed (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080"

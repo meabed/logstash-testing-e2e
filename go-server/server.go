@@ -61,8 +61,7 @@ func SendMessageToLogstash(w http.ResponseWriter, r *http.Request) {
 
     jsonStr, _ := ioutil.ReadAll(r.Body);
     req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonStr))
-    req.Header.Set("X-Custom-Header", "myvalue")
-    req.Header.Set("Content-Type", "application/json")
+    //req.Header.Set("Content-Type", "application/json")
 
     client := &http.Client{}
     resp, err := client.Do(req)

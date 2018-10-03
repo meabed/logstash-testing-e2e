@@ -30,6 +30,12 @@ app.filter('prettyJSON', function () {
   }
 });
 
+app.filter('dateUI', function ($filter) {
+  return function (date) {
+    return $filter('date')(date, 'yyyy-MM-dd HH:mm:ss');
+  }
+});
+
 app.config(function (hljsServiceProvider) {
   hljsServiceProvider.setOptions({
     // replace tab with 2 spaces
@@ -40,25 +46,40 @@ app.config(function (hljsServiceProvider) {
 
 app.controller('mainlCtrl', function ($scope, $http, $timeout, $location, $window, socket, $localStorage, $sessionStorage) {
 
-  // console.log($localStorage);
-  // console.log($sessionStorage);
+  $scope.logExamples = $window.logExamples;
+  $scope.showUseful = 0;
   $scope.currentTab = 1;
 
   $scope.logstashMessage = '';
-  $scope.messageHisory = [];
-  $scope.messages = [];
-  $scope.storage = $localStorage;
+  $scope.messagesFromLS = [];
+  var storage = $scope.storage = $localStorage;
 
+  storage.messageHistory = storage.messageHistory || [];
 
   socket.on('message:received', function (message) {
     var jsonMsg = JSON.parse(message);
-    $scope.messages.push(jsonMsg);
+
+    $scope.messagesFromLS.push({msg: jsonMsg, inc: $scope.messagesFromLS.length + 1, date: new Date()});
     // console.log(jsonMsg);
     // console.log($scope.messages);
   });
 
-  $scope.sendToLogstash = function () {
-    $http.post('send-message', $scope.logstashMessage)
+  $scope.clearMessagesHistory = function () {
+    storage.messageHistory = [];
+  };
+
+  $scope.clearMessagesFromLS = function () {
+    $scope.messagesFromLS = []
+  };
+
+  $scope.toggleUsefulLinks = function () {
+    $scope.showUseful = !$scope.showUseful
+  };
+
+  $scope.sendToLogstash = function (logstashMessage) {
+    storage.messageHistory.push({msg: logstashMessage, date: new Date(), inc: storage.messageHistory.length + 1});
+
+    $http.post('send-message', logstashMessage)
       .then(function (res) {
         // console.log(res)
       })

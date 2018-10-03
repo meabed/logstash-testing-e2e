@@ -1,0 +1,9 @@
+<div ng-if="currentTab == 3" class="bg-lightx d-block">
+    <table class="table table-striped table-sm">
+        <tr class="d-flex" ng-repeat="(key, example) in this.logExamples track by $index">
+            <td class="col-2">{{ example.type }} </td>
+            <td class="col-10">{{ example.text }} </td>
+        </tr>
+    </table>
+    <br>
+</div>
