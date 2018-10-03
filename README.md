@@ -4,13 +4,13 @@
 #### Why UI?
 Testing Logstash real configuration input, output, codecs and filters is a extremely tedious process results in logstash configurations that are not tested properly and it break very often.
  
-#### Design
-Logstash architecture
+#### Architecture
+##### Logstash architecture in production
 <a href="#" target="_blank">
     <img src="https://image.ibb.co/f7DyMz/Screen_Shot_2018_10_03_at_4_10_27_PM.png" alt="Logstash_Testing" border="0">
 </a>
 
-Testing architecture
+##### Logstash architecture in this example
 <a href="#" target="_blank">
     <img src="https://image.ibb.co/nPs3oe/Screen_Shot_2018_10_03_at_4_09_07_PM.png" alt="Logstash_Testing" border="0">
 </a>
