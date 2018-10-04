@@ -7,7 +7,13 @@
 
 #### Why UI?
 Testing Logstash real configuration input, output, codecs and filters is a extremely tedious process results in logstash configurations that are not tested properly and it break very often.
- 
+
+#### GO + Socket.IO + NG + Logstash FTW!
+<a href="#" target="_blank">
+    <img src="https://image.ibb.co/kRF7zK/logstash_e2e.jpg" alt="Logstash_Testing" border="0">
+</a>
+
+
 #### Architecture
 ##### Logstash architecture in production
 <a href="#" target="_blank">
