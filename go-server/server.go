@@ -18,6 +18,7 @@ var (
     host         *string
     port         *int
     Socket       socketio.Socket
+    IsSocketOn   = false
     // Logger ... Logger Driver
     routes = map[string]func(w http.ResponseWriter, r *http.Request){
         `/send-message`:    SendMessageToLogstash,
@@ -66,24 +67,24 @@ func SendMessageToLogstash(w http.ResponseWriter, r *http.Request) {
 
     client := &http.Client{}
     resp, err := client.Do(req)
-    if err != nil {
-        panic(err)
-    }
-    defer resp.Body.Close()
 
-    //fmt.Println("response Status:", resp.Status)
-    //fmt.Println("response Headers:", resp.Header)
-    body, _ := ioutil.ReadAll(resp.Body)
-    //fmt.Println("response Body:", string(body))
-    w.Write(body)
+    if err != nil {
+        w.WriteHeader(500)
+        w.Write([]byte(err.Error()))
+    } else {
+        defer resp.Body.Close()
+        body, _ := ioutil.ReadAll(resp.Body)
+        w.Write(body)
+    }
 }
 
 // ReceiveMessageFromLogstash ... Receive Message from logstash and emit it to socket io server
 func ReceiveMessageFromLogstash(w http.ResponseWriter, r *http.Request) {
     body, _ := ioutil.ReadAll(r.Body)
-    // fmt.Printf("%s", string(body[:]))
 
-    Socket.Emit("message:received", string(body[:]))
+    if IsSocketOn == true {
+        _ = Socket.Emit("message:received", string(body[:]))
+    }
 }
 
 // serveSocketIO ... SocketID Server
@@ -96,10 +97,11 @@ func serveSocketIO() (*socketio.Server, error) {
     SocketServer.On("connection", func(so socketio.Socket) {
         Socket = so
         log.Println("on connection")
-
+        IsSocketOn = true
         so.Join("main")
 
         so.On("disconnection", func() {
+            IsSocketOn = false
             log.Println("on disconnect")
         })
     })
