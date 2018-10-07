@@ -1,0 +1,13 @@
+<div class="container row no-gutters">
+    <div class="pt-1 col-12">
+        <div class="d-inline-block">Messages from Logstash: {{ messagesFromLS.length }}</div>
+        <div ng-if="messagesFromLS.length > 0" class="d-inline-block float-right">
+            <a href="#" ng-click="clearMessagesFromLS()" class="btn btn-outline-primary btn-sm">Clear</a>
+        </div>
+    </div>
+    <div class="container col-12">
+        <div class="pre-card resizable card card-body ls-card" ng-repeat="obj in messagesFromLS | orderBy:'-inc' track by obj.inc">
+            <div hljs hljs-source="'{{ obj.msg | prettyJSON }}'"></div>
+        </div>
+    </div>
+</div>

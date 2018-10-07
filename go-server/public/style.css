@@ -39,7 +39,6 @@ div#page {
 
 pre {
     margin-bottom: 0;
-    max-height: 300px;
     overflow-x: scroll;
 }
 
@@ -47,7 +46,20 @@ pre {
     padding: 0.75rem;
 }
 
+div.pre-card {
+    height: 350px;
+    max-height: 650px;
+}
+
+.resizable {
+    resize: both;
+    overflow: auto;
+}
+
 .footer i.fa {
     color: #77797a;
     font-size: 25px;
+}
+
+.hljs {
 }

@@ -51,11 +51,17 @@ app.controller('mainlCtrl', function ($scope, $http, $timeout, $location, $windo
   $scope.showUseful = 0;
   $scope.currentTab = 1;
 
-  $scope.logstashMessage = '';
   $scope.messagesFromLS = [];
   var storage = $scope.storage = $localStorage;
 
   storage.messageHistory = storage.messageHistory || [];
+  var messageHistoryLen = storage.messageHistory.length;
+
+  $scope.logstashMessage = '';
+
+  if (storage.messageHistory[messageHistoryLen - 1]) {
+    $scope.logstashMessage = storage.messageHistory[messageHistoryLen - 1].msg || '';
+  }
 
   socket.on('message:received', function (message) {
     var jsonMsg = JSON.parse(message);
@@ -64,6 +70,19 @@ app.controller('mainlCtrl', function ($scope, $http, $timeout, $location, $windo
     // console.log(jsonMsg);
     // console.log($scope.messages);
   });
+
+  $scope.tryExample = function (idx) {
+    $scope.logstashMessage = $scope.logExamples[idx].text;
+    $scope.sendToLogstash($scope.logstashMessage);
+  };
+
+  $scope.toggleExampleFilter = function (idx) {
+    console.log(idx)
+  };
+
+  $scope.copyExample = function (idx) {
+    console.log(idx)
+  };
 
   $scope.clearMessagesHistory = function () {
     storage.messageHistory = [];

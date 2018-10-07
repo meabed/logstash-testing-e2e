@@ -4,6 +4,8 @@ services:
   logstash_tdd:
     image: docker.elastic.co/logstash/logstash:${TAG:-6.4.1}
     container_name: logstash_tdd
+    environment:
+      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
     volumes:
     - ./files/:/files
     - ./files/logstash.yml:/usr/share/logstash/config/logstash.yml
